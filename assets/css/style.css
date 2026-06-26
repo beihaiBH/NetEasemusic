@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'StreetFont';
+    src: url('../fonts/b.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+  --red:#ec4141;
+  --red-dark:#c20c0c;
+  --bg:#f2f3f5;
+  --card:#fff;
+  --gray:#e5e6eb;
+  --text:#1f2329;
+  --sub:#666;
+  --light:#999;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'StreetFont',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+body{background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:20px;user-select:none;}
+
+/* 播放器主体 */
+.player{width:420px;max-width:95vw;background:var(--card);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);overflow:hidden;position:relative;}
+
+/* 顶部区域 */
+.top-bg{background:#ebedf0;padding:16px;position:relative;height:380px;overflow:hidden;}
+.share-btn{position:absolute;top:16px;right:16px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;}
+
+/* 黑胶唱片区域 */
+.vinyl-container{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;touch-action:pan-y;overflow:hidden;}
+.vinyl-stack{position:relative;width:280px;height:280px;overflow:visible;}
+.vinyl{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.15),transparent 35%),radial-gradient(circle at 70% 70%,rgba(255,255,255,.08),transparent 40%),repeating-radial-gradient(circle,#111 0 2px,#000 2px 4px);box-shadow:0 0 30px rgba(0,0,0,.35), inset 0 0 40px rgba(255,255,255,.05);position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;transition:transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);cursor:pointer;}
+.vinyl.spin{animation:spin 8s linear infinite;}
+.vinyl.current{transform:translateX(0);z-index:2;}
+.vinyl.next{transform:translateX(120%);z-index:1;}
+.vinyl.prev{transform:translateX(-120%);z-index:1;}
+@keyframes spin{from{transform:translateX(0) rotate(0);}to{transform:translateX(0) rotate(360deg);}}
+.cover{width:180px;height:180px;border-radius:50%;object-fit:cover;box-shadow:0 0 15px rgba(0,0,0,.4);border:6px solid #222;}
+.spindle{position:absolute;width:12px;height:12px;border-radius:50%;background:#fff;z-index:5;box-shadow:0 0 5px rgba(0,0,0,0.5);}
+
+/* 滑动提示 */
+.swipe-hint{position:absolute;top:20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;z-index:10;display:none;white-space:nowrap;}
+.swipe-left, .swipe-right{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:8px 16px;border-radius:20px;font-size:14px;z-index:10;display:none;opacity:0;transition:opacity 0.3s;}
+.swipe-left{left:20px;}
+.swipe-right{right:20px;}
+.swipe-hint.show, .swipe-left.show, .swipe-right.show{display:block;animation:fadeInOut 2s;}
+@keyframes fadeInOut{
+  0%,100%{opacity:0;}
+  50%{opacity:1;}
+}
+
+/* 歌词显示区域 */
+.lyrics-container{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg, rgba(18,18,18,0.95) 0%, rgba(18,18,18,0.98) 100%);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:5;}
+.lyrics-container.show{opacity:1;visibility:visible;}
+.lyrics-wrapper{width:100%;height:300px;overflow-y:auto;position:relative;scrollbar-width:none;-ms-overflow-style:none;}
+.lyrics-wrapper::-webkit-scrollbar{display:none;}
+.lyrics-content{width:100%;text-align:center;padding:20px 0;}
+.lyric-line{font-size:16px;margin:14px 0;line-height:1.5;color:rgba(255,255,255,0.3);transition:all 0.3s ease;min-height:24px;cursor:pointer;padding:5px 10px;border-radius:5px;}
+.lyric-line:hover{background:rgba(255,255,255,0.1);}
+.lyric-line.active{color:#fff !important;font-size:20px;font-weight:500;text-shadow:0 0 10px rgba(255,255,255,0.3);background:rgba(255,255,255,0.05);}
+
+/* 歌曲信息 */
+.info{text-align:left;padding:16px 20px 12px;}
+.title{font-size:22px;font-weight:700;color:var(--text);}
+.artist{font-size:14px;color:var(--sub);margin-top:6px;}
+
+/* 进度条 */
+.progress{padding:0 20px 10px;position:relative;}
+.bar{height:4px;background:#e1e1e2;border-radius:3px;position:relative;cursor:pointer;}
+.fill{height:100%;background:var(--red);width:0;border-radius:3px;}
+.dot{width:10px;height:10px;background:var(--red);border-radius:50%;position:absolute;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 5px rgba(236,65,65,0.5);display:none;}
+.climax-dot{width:8px;height:8px;background:var(--red);border-radius:50%;position:absolute;top:-2px;transform:translateX(-50%);z-index:2;display:none;}
+.bar:hover .dot{display:block;}
+.time{display:flex;justify-content:space-between;font-size:12px;color:#999;margin-top:6px;}
+
+/* 音质标签 */
+.quality{text-align:center;font-size:11px;color:var(--light);margin-top:2px;margin-bottom:-8px;}
+
+/* 控制按钮 */
+.ctrl{display:flex;align-items:center;justify-content:space-between;padding:16px 30px 20px;border-top:1px solid var(--gray);}
+.btn{width:44px;height:44px;border:none;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;padding:0;}
+.btn:hover{background:none !important;}
+.btn img{width:24px;height:24px;}
+.play-btn{width:44px;height:44px;border:none;background:none;color:#333;display:flex;align-items:center;justify-content:center;padding:0;}
+.play-btn img{width:24px;height:24px;}
+
+/* 播放列表页面 */
+.list-page{position:fixed;top:auto;bottom:0;left:50%;transform:translateX(-50%);width:420px;max-width:95vw;height:0;background:#fafafa;display:flex;flex-direction:column;z-index:20;border-radius:20px 20px 0 0;overflow:hidden;transition:height 0.3s ease;box-shadow:0 -5px 20px rgba(0,0,0,0.1);}
+.list-page.show{height:66vh;min-height:400px;max-height:600px;}
+.list-mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:15;display:none;}
+.list-mask.show{display:block;}
+.list-header{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#fff;border-bottom:1px solid #eee;}
+.list-header span{font-size:18px;font-weight:600;color:#333;}
+.close-list-btn{width:32px;height:32px;border:none;background:none;cursor:pointer;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#666;}
+.list-tabs{display:flex;background:#fff;padding:0 20px;border-bottom:1px solid #eee;}
+.list-tab{padding:15px 0;margin-right:30px;cursor:pointer;color:#666;font-size:15px;position:relative;transition:color 0.2s;}
+.list-tab.active{color:#333;font-weight:500;}
+.list-tab.active::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--red);border-radius:3px 3px 0 0;}
+.list-content{flex:1;overflow-y:auto;background:#fff;}
+.list-item{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-bottom:1px solid #f5f5f5;transition:background 0.2s;}
+.list-item:hover{background:#fafafa;}
+.list-item.active{color:var(--red);}
+.list-item .song-info{flex:1;}
+.list-item .song-title{font-size:16px;color:#333;margin-bottom:4px;}
+.list-item.active .song-title{color:var(--red);}
+.list-item .song-artist{font-size:12px;color:#999;}
+.list-item .playing-icon{color:var(--red);font-size:14px;margin-right:8px;display:none;}
+.list-item.active .playing-icon{display:inline;}
+.list-item .duration{font-size:12px;color:#999;}
+.history-item{opacity:0.8;}
+
+/* Toast提示 */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:white;padding:10px 20px;border-radius:20px;z-index:1000;font-size:14px;opacity:0;transition:opacity 0.3s;pointer-events:none;}
+.toast.show{opacity:1;}
+
+/* 加载动画 */
+.loader{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100;flex-direction:column;}
+.loader.hidden{display:none;}
+.loader-spinner{width:40px;height:40px;border:3px solid var(--gray);border-top-color:var(--red);border-radius:50%;animation:spin 1s linear infinite;}
+.loader-text{margin-top:15px;color:var(--sub);font-size:14px;}

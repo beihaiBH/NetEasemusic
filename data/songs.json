@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "title": "晴天",
+        "artist": "周杰伦",
+        "cover": "https://imgessl.kugou.com/stdmusic/400/20230920/20230920142503632013.jpg",
+        "audio": "./music/晴天 - 周杰伦.mp3",
+        "lrc": "./lrc/晴天.lrc",
+        "climax": "01:25",
+        "duration": "04:29",
+        "quality": "极高音质"
+    },
+    {
+        "id": 2,
+        "title": "花海",
+        "artist": "周杰伦",
+        "cover": "http://imge.kugou.com/stdmusic/20241118/20241118160622508429.jpg",
+        "audio": "./music/花海 - 周杰伦.mp3",
+        "lrc": "./lrc/花海.lrc",
+        "climax": "01:17",
+        "duration": "04:20",
+        "quality": "极高音质"
+    },
+    {
+        "id": 3,
+        "title": "蒲公英的约定",
+        "artist": "周杰伦",
+        "cover": "https://imgessl.kugou.com/stdmusic/400/20220705/20220705143006989099.jpg",
+        "audio": "./music/蒲公英的约定 - 周杰伦.mp3",
+        "lrc": "./lrc/蒲公英的约定.lrc",
+        "climax": "01:25",
+        "duration": "04:06",
+        "quality": "极高音质"
+    },
+    {
+        "id": 4,
+        "title": "烟花易冷",
+        "artist": "周杰伦",
+        "cover": "https://imge.kugou.com/stdmusic/20250125/20250125121628799968.jpg",
+        "audio": "./music/烟花易冷 - 周杰伦.mp3",
+        "lrc": "./lrc/烟花易冷.lrc",
+        "climax": "01:01",
+        "duration": "04:23",
+        "quality": "极高音质"
+    },
+    {
+        "id": 5,
+        "title": "告白气球",
+        "artist": "周杰伦",
+        "cover": "https://singerimg.kugou.com/uploadpic/softhead/400/20241112/20241112153406328180.jpg",
+        "audio": "./music/告白气球 - 周杰伦.mp3",
+        "lrc": "./lrc/告白气球.lrc",
+        "climax": "01:05",
+        "duration": "03:35",
+        "quality": "极高音质"
+    },
+    {
+        "id": 6,
+        "title": "搁浅",
+        "artist": "周杰伦",
+        "cover": "https://p1.music.126.net/P1goeQ7SoxEkFsb4ZDijMw==/7746059418324672.jpg?imageView&thumbnail=360y360&quality=75&tostatic=0",
+        "audio": "./music/搁浅 - 周杰伦.mp3",
+        "lrc": "./lrc/搁浅.lrc",
+        "climax": "01:01",
+        "duration": "04:00",
+        "quality": "极高音质"
+    },
+    {
+        "id": 7,
+        "title": "青花瓷",
+        "artist": "周杰伦",
+        "cover": "https://imge.kugou.com/stdmusic/20220705/20220705143006989099.jpg",
+        "audio": "./music/青花瓷 - 周杰伦.mp3",
+        "lrc": "./lrc/青花瓷.lrc",
+        "climax": "01:01",
+        "duration": "03:59",
+        "quality": "极高音质"
+    },
+    {
+        "id": 8,
+        "title": "一路向北",
+        "artist": "周杰伦",
+        "cover": "https://imge.kugou.com/stdmusic/20250125/20250125121901851911.jpg",
+        "audio": "./music/一路向北 - 周杰伦.mp3",
+        "lrc": "./lrc/一路向北.lrc",
+        "climax": "01:37",
+        "duration": "04:54",
+        "quality": "极高音质"
+    },
+    {
+        "id": 9,
+        "title": "我是如此相信",
+        "artist": "周杰伦",
+        "cover": "https://picx.zhimg.com/v2-df0980669a2489ed31386c6a2de22e8d_720w.jpg?source=172ae18b",
+        "audio": "./music/我是如此相信 - 周杰伦.mp3",
+        "lrc": "./lrc/我是如此相信.lrc",
+        "climax": "01:30",
+        "duration": "04:26",
+        "quality": "极高音质"
+    },
+    {
+        "id": 10,
+        "title": "我落泪情绪零碎",
+        "artist": "周杰伦",
+        "cover": "https://imgessl.kugou.com/stdmusic/400/20250125/20250125121628799968.jpg",
+        "audio": "./music/我落泪情绪零碎 - 周杰伦.mp3",
+        "lrc": "./lrc/我落泪情绪零碎.lrc",
+        "climax": "01:12",
+        "duration": "04:17",
+        "quality": "极高音质"
+    },
+    {
+        "id": 11,
+        "title": "版本5.0持续更新",
+        "artist": "源码：https://github.com/beihaiBH/---NetEasemusic",
+        "cover": "https://img2.baidu.com/it/u=2544157180,3998001222&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        "audio": "http://null",
+        "lrc": "",
+        "climax": "00.00",
+        "duration": "反馈：1876438710@qq.com",
+        "quality": "极高音质"
+    }
+]
